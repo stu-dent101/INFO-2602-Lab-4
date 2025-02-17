@@ -169,6 +169,10 @@ class RegularUser(User):
 
   def __repr__(self):
     return f'<RegularUser {self.id} : {self.username} - {self.email}>'
+  
+  def get_todos(self):
+    #return self.todos
+    return sorted(self.todos, key=lambda todo:todo.id, reverse=True)
 
 
 class Admin(User):
