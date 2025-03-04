@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block title %}Todo App{% endblock %}
-{% block page %} {{ current_user.username }}'s' Todo{% endblock %}
+{% block page %} {{ current_user.username }}'s' Todo{% endblock %} <!--to get the user name to display on the screen-->
 
 {% block link%}
     <ul id="nav-mobile" class="right">
@@ -45,8 +45,9 @@
         </div>
     </div>
   </form>
+  <!--To see all of the user's todos-->
   <ul class="collection " id="result">
-    {% for todo in current_user.todos %} 
+    {% for todo in current_user.get_todos() %} <!--calling the method to reverse the todos-->
          <li class="collection-item">
             <form class="row" method="POST" action="toggle/{{todo.id}}" >
               <span class="card-title">{{todo.text}}

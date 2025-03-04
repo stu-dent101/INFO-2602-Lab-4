@@ -171,7 +171,6 @@ class RegularUser(User):
     return f'<RegularUser {self.id} : {self.username} - {self.email}>'
   
   def get_todos(self):
-    #return self.todos
     return sorted(self.todos, key=lambda todo:todo.id, reverse=True)
 
 

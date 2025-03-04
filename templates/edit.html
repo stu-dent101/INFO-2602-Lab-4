@@ -1,3 +1,5 @@
+<!--Not seeing the rest of the todos when editing-->
+
 {% extends "layout.html" %}
 {% block title %}Todo App{% endblock %}
 {% block page %} Editing Todo{% endblock %}
@@ -46,10 +48,10 @@
           </div>
         </form>
 
-       <main class="container">
+      <main class="container">
           <ul class="collection " id="result">
             {% if current_user.is_authenticated %}
-                {% for todo in todos %}
+                {% for todo in current_user.get_todos() %}
                      <li class="collection-item">
                         <form  method="POST" action="toggle/{{todo.id}}" >
                           <span class="card-title">{{todo.text}}
